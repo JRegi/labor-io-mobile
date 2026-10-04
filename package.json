@@ -1,0 +1,9 @@
+{
+  "name": "labor-io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Maquetado del TP Integrador de Diseño y Maquetado Web",
+  "dependencies": {
+    "bootstrap": "~5.3.8"
+  }
+}

@@ -1,2 +1,3 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normaliza los fines de línea a LF en el repositorio,
+# sin importar si el integrante usa Windows, Mac o Linux
+* text=auto eol=lf

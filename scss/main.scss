@@ -1,0 +1,14 @@
+// SOLO imports, no estilos
+// 1. Variables propias ANTES de Bootstrap, para sobrescribir sus valores por defecto
+@import "variables";
+
+// 2. Bootstrap completo
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// 3. Estilos compartidos
+@import "layout";
+
+// 4. Estilos de cada página
+@import "home";
+@import "auth";
+@import "offers";
