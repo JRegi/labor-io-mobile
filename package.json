@@ -5,5 +5,8 @@
   "description": "Maquetado del TP Integrador de Diseño y Maquetado Web",
   "dependencies": {
     "bootstrap": "~5.3.8"
+  },
+  "devDependencies": {
+    "prettier": "3.9.9"
   }
 }

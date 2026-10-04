@@ -1,1 +1,55 @@
-// tokens del Figma (colores, tipografía…)
+// Tokens del Figma «Labor.io – UI altaFidelidad» (04/10/2026)
+// Fuente: design system v2.1, secciones 2 y 9.4.
+// Este archivo tiene SOLO variables, sin selectores.
+
+// ---------------------------------------------------------------
+// 1. Colores (sección 2.1). No se usa ningún color fuera de esta lista.
+// ---------------------------------------------------------------
+$color-cream: #f6f4ef; // fondo/crema: fondo de página
+$color-brand-blue: #1b3a6b; // marca/azul: logo, enlaces, íconos, chip activo
+$color-coral: #ff6b4a; // accion/coral: botones de acción e isotipo
+$color-ink: #14181f; // texto/tinta: texto principal (también sobre coral)
+$color-ink-muted: #5b6472; // texto/secundario: placeholders, subtítulos, fechas
+$color-surface: #ffffff; // superficie/blanco: inputs, tarjetas, chips
+$color-control-border: #7a8391; // linea/borde-control: borde de inputs, chips, checkbox
+$color-line: #e2ded4; // linea/divisor: SOLO líneas decorativas y borde de tarjetas
+$color-blue-tint: #e3eaf6; // tinte/azul: fondo de tags de oferta
+$color-error: #b42318; // estado/error
+$color-error-tint: #fdecea; // tinte/error
+$color-success: #1e6b3a; // estado/ok
+$color-success-tint: #e2f3e8; // tinte/ok
+$color-disabled: #e9e6de; // estado/deshabilitado
+
+// ---------------------------------------------------------------
+// 2. Radios y espaciado (secciones 2.4 y 2.5)
+// ---------------------------------------------------------------
+$radius-base: 0.75rem; // 12 px: botones, inputs, tarjetas
+$screen-margin: 1.375rem; // 22 px: espacio/margen-lateral
+
+// ---------------------------------------------------------------
+// 3. Overrides de Bootstrap
+// Funcionan porque main.scss importa este archivo ANTES que Bootstrap:
+// las variables de Bootstrap usan !default y no pisan las que ya existen.
+// Ojo: acá todavía no existen las funciones de Bootstrap (tint-color(), etc.).
+// ---------------------------------------------------------------
+$primary: $color-coral; // .btn-primary = botón coral
+$secondary: $color-brand-blue;
+$danger: $color-error;
+$success: $color-success;
+
+$body-bg: $color-cream;
+$body-color: $color-ink;
+$color-contrast-dark: $color-ink; // texto tinta sobre coral (blanco no cumple contraste)
+
+$font-family-sans-serif: "Inter", system-ui, sans-serif;
+$headings-font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+$headings-font-weight: 700;
+
+$border-radius: $radius-base;
+$border-color: $color-line;
+$input-border-color: $color-control-border;
+$btn-font-weight: 600;
+$link-color: $color-brand-blue;
+
+// .container aplica la MITAD de este valor a cada lado → 22 px por lado
+$container-padding-x: $screen-margin * 2;
