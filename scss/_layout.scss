@@ -1,1 +1,93 @@
 // header y footer compartidos
+// Header con logo (Home y Oportunidades)
+.site-header {
+  display: flex;
+  align-items: center; // centra el logo verticalmente
+  min-height: 3.5rem; // 56 px
+}
+
+// Isotipo + texto "Labor.io"
+.brand-logo {
+  display: inline-flex; // pone isotipo y texto en fila
+  align-items: center;
+  gap: 5px;
+  font-family: $headings-font-family;
+  font-size: 1.375rem; // 22 px
+  font-weight: 800;
+  line-height: 1.625rem; // 26 px
+  color: $color-brand-blue;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 1.25rem; // 20 px
+  height: 1.25rem;
+  border-radius: 6px;
+  background-color: $color-coral;
+}
+
+// Título de página: 24/32 por defecto (cada página puede ajustarlo)
+.page-title {
+  margin-bottom: 0;
+  font-size: 1.5rem; // 24 px
+  line-height: 2rem; // 32 px
+}
+
+// Botón grande de 60 px (Home, Register, Login)
+.btn-lg-cta {
+  display: flex; // permite centrar el texto vertical y horizontalmente
+  align-items: center;
+  justify-content: center;
+  min-height: 3.75rem; // 60 px
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+// Botón secundario: borde azul de marca, texto tinta
+.btn-outline-brand {
+  --bs-btn-color: #{$color-ink};
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: #{$color-brand-blue};
+  --bs-btn-hover-color: #{$color-ink};
+  --bs-btn-hover-bg: #{$color-blue-tint};
+  --bs-btn-hover-border-color: #{$color-brand-blue};
+  --bs-btn-active-color: #{$color-ink};
+  --bs-btn-active-bg: #{$color-blue-tint};
+  --bs-btn-active-border-color: #{$color-brand-blue};
+}
+
+// Link suelto en azul de marca ("Seguir como invitado", "¿Olvidaste tu contraseña?")
+.link-brand {
+  font-weight: 600;
+  color: $color-brand-blue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Divisor "o" / "o con tu mail": línea · texto · línea
+.divider-text {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; // 12 px entre cada línea y el texto
+  margin-bottom: 0;
+  font-size: 0.8125rem; // 13 px
+
+  // Las dos líneas se dibujan con pseudo-elementos, sin HTML extra
+  &::before,
+  &::after {
+    content: "";
+    flex-grow: 1; // cada línea ocupa la mitad del espacio sobrante
+    border-top: 1px solid $color-line;
+  }
+}
+
+// Foco visible: 3 px azul de marca, separado 2 px (design system 6.1)
+a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid $color-brand-blue;
+  outline-offset: 2px;
+  box-shadow: none;
+}

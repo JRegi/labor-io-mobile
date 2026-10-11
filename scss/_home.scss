@@ -1,0 +1,34 @@
+// El body ocupa al menos la pantalla visible: así mt-auto empuja las acciones al fondo
+.home-layout {
+  min-height: 100dvh;
+}
+
+// En Home el header es más alto (64 px) que en Oportunidades (56 px)
+.home-layout .site-header {
+  min-height: 4rem;
+}
+
+.hero-illustration {
+  margin-top: 0.5rem; // 8 px
+  margin-bottom: 2rem; // 16 px bajo la ilustración + 16 px sobre el texto
+}
+
+// Título de Home: 26/34
+.home-page .page-title {
+  margin-bottom: 0.75rem; // 12 px hasta el subtítulo
+  font-size: 1.625rem;
+  line-height: 2.125rem;
+}
+
+// Subtítulo de Home: Plus Jakarta Sans 15/22 (pendiente P1 del design system)
+.home-page .page-lead {
+  font-family: $headings-font-family;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  color: $color-ink-muted;
+}
+
+.home-actions {
+  padding-top: 2.5rem; // espacio mínimo de 40 px entre el texto y las acciones
+  padding-bottom: 2.5rem; // 40 px hasta el borde inferior
+}
