@@ -1,34 +1,116 @@
-// El body ocupa al menos la pantalla visible: así mt-auto empuja las acciones al fondo
+// Home de bienvenida
 .home-layout {
   min-height: 100dvh;
 }
 
-// En Home el header es más alto (64 px) que en Oportunidades (56 px)
+.home-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100dvh;
+  margin-inline: auto;
+}
+
 .home-layout .site-header {
-  min-height: 4rem;
+  min-height: 5rem;
+  padding-inline: 1.125rem;
+}
+
+.home-page {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  width: 100%;
+  max-width: 26.25rem;
+  padding: 0 1.125rem 2.25rem;
+}
+
+.home-intro {
+  padding-top: 0.25rem;
 }
 
 .hero-illustration {
-  margin-top: 0.5rem; // 8 px
-  margin-bottom: 2rem; // 16 px bajo la ilustración + 16 px sobre el texto
+  display: block;
+  width: 100%;
+  max-width: 17.5rem;
+  height: auto;
+  margin: 0 0 1.5rem;
 }
 
-// Título de Home: 26/34
 .home-page .page-title {
-  margin-bottom: 0.75rem; // 12 px hasta el subtítulo
-  font-size: 1.625rem;
-  line-height: 2.125rem;
+  max-width: 17rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.025em;
 }
 
-// Subtítulo de Home: Plus Jakarta Sans 15/22 (pendiente P1 del design system)
 .home-page .page-lead {
-  font-family: $headings-font-family;
-  font-size: 0.9375rem;
-  line-height: 1.375rem;
+  max-width: 18rem;
+  margin-bottom: 0;
   color: $color-ink-muted;
+  font-family: $headings-font-family;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
 }
 
 .home-actions {
-  padding-top: 2.5rem; // espacio mínimo de 40 px entre el texto y las acciones
-  padding-bottom: 2.5rem; // 40 px hasta el borde inferior
+  gap: 1rem;
+  padding-top: 2.75rem;
+  margin-top: auto;
+}
+
+.home-actions .btn-lg-cta {
+  min-height: 3rem;
+  font-size: 0.8125rem;
+}
+
+.home-actions .btn-primary {
+  --bs-btn-color: #{$color-ink};
+  --bs-btn-hover-color: #{$color-ink};
+  --bs-btn-active-color: #{$color-ink};
+  font-weight: 700;
+}
+
+.home-actions .divider-text {
+  gap: 0.625rem;
+  margin-block: 0.25rem 0.125rem;
+  font-size: 0.625rem;
+}
+
+.home-actions .divider-text::before,
+.home-actions .divider-text::after {
+  border-color: $color-line;
+}
+
+.home-actions .link-brand {
+  margin-top: 0.125rem;
+  font-size: 0.8125rem;
+}
+
+@media (min-width: 576px) {
+  .home-shell {
+    max-width: 26.25rem;
+    min-height: 100dvh;
+    padding-inline: 2rem;
+  }
+
+  .home-layout .site-header {
+    padding-inline: 1.375rem;
+  }
+
+  .home-page {
+    padding-inline: 1.375rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 575.98px) {
+  .home-actions {
+    padding-top: 1.5rem;
+  }
+
+  .home-page {
+    padding-bottom: 1.5rem;
+  }
 }
