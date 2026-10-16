@@ -53,3 +53,21 @@ $link-color: $color-brand-blue;
 
 // .container aplica la MITAD de este valor a cada lado → 22 px por lado
 $container-padding-x: $screen-margin * 2;
+
+// ---------------------------------------------------------------
+// 4. Formularios (design system 4.9, 4.12 y 6.1)
+// ---------------------------------------------------------------
+$input-bg: $color-surface; // inputs blancos (Bootstrap usa el fondo de página por defecto)
+$input-padding-y: 0.625rem; // 10 px -> input de 46 px con texto de 16 px
+$input-padding-x: 0.875rem; // 14 px
+$input-placeholder-color: $color-ink-muted;
+$input-focus-border-color: $color-brand-blue;
+
+$form-label-font-size: 0.8125rem; // 13 px
+$form-label-font-weight: 500;
+$form-label-color: $color-ink;
+$form-label-margin-bottom: 0.375rem; // 6 px entre label e input
+
+$form-check-input-width: 1.125em; // checkbox de 18 px
+$form-check-input-border: 1px solid $color-control-border; // por defecto usaría $color-line (no cumple 3:1)
+$form-check-input-checked-bg-color: $color-brand-blue; // tilde blanco sobre azul (sobre coral no cumple)

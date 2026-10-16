@@ -86,7 +86,47 @@
 
 // Foco visible: 3 px azul de marca, separado 2 px (design system 6.1)
 a:focus-visible,
+button:focus-visible,
 .btn:focus-visible {
+  outline: 3px solid $color-brand-blue;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+// Top bar «Volver» (Register y Login)
+.top-bar {
+  display: flex;
+  align-items: center;
+  min-height: 3.5rem; // 56 px
+}
+
+// Enlace «Volver»: todo el enlace es el área táctil
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem; // 12 px entre chevron y texto
+  min-height: 2.75rem; // 44 px de área táctil
+  font-weight: 600;
+  color: $color-ink;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .bi {
+    font-size: 1.5rem; // ícono de 24 px
+  }
+}
+
+// Placeholder más chico que el texto escrito (el texto queda en 16 px para evitar el zoom de iOS)
+.form-control::placeholder {
+  font-size: 0.875rem; // 14 px
+}
+
+// Foco de inputs y checkbox: mismo outline que botones y enlaces
+.form-control:focus,
+.form-check-input:focus {
   outline: 3px solid $color-brand-blue;
   outline-offset: 2px;
   box-shadow: none;
