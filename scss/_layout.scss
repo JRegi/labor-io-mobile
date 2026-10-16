@@ -1,4 +1,4 @@
-// header y footer compartidos
+// Componentes compartidos entre las páginas (sin footer).
 // Header con logo (Home y Oportunidades)
 .site-header {
   display: flex;
@@ -41,6 +41,13 @@
   min-height: 3.75rem; // 60 px
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+// Botón compacto: 45 px de alto y texto de 14/20, según el design system.
+.btn-compact {
+  min-height: 2.8125rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 // Botón secundario: borde azul de marca, texto tinta
