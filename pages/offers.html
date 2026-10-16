@@ -64,46 +64,105 @@
         </button>
       </div>
 
-      <!-- Los filtros conservan el aspecto del diseño, sin desplegables ni lógica de filtrado. -->
+      <!-- Sin JS: cada desplegable es un <details> nativo y cada opción un checkbox o radio.
+           Se abren, se cierran y se marcan, pero no filtran (no hay lógica real).
+           El atributo name compartido hace que al abrir uno se cierren los demás. -->
       <div
         class="filter-bar d-flex flex-wrap gap-2"
         role="group"
         aria-label="Filtros de oportunidades"
       >
-        <button type="button" class="filter-chip" aria-disabled="true">
-          Modalidad
-          <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
-        </button>
-        <button type="button" class="filter-chip" aria-disabled="true">
-          Tipo de puesto
-          <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
-        </button>
-        <button type="button" class="filter-chip" aria-disabled="true">
-          Ubicación
-          <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
-        </button>
-        <button
-          type="button"
-          class="filter-chip is-active"
-          aria-pressed="true"
-          aria-disabled="true"
-        >
+        <details class="filter-dropdown" name="offer-filters">
+          <summary class="filter-chip">
+            Modalidad
+            <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
+          </summary>
+          <fieldset class="filter-menu">
+            <legend class="visually-hidden">Modalidad</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="mode" id="mode-remote" />
+              <label class="form-check-label" for="mode-remote">Remoto</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="mode" id="mode-hybrid" />
+              <label class="form-check-label" for="mode-hybrid">Híbrido</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="mode" id="mode-onsite" />
+              <label class="form-check-label" for="mode-onsite">Presencial</label>
+            </div>
+          </fieldset>
+        </details>
+        <details class="filter-dropdown" name="offer-filters">
+          <summary class="filter-chip">
+            Tipo de puesto
+            <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
+          </summary>
+          <fieldset class="filter-menu">
+            <legend class="visually-hidden">Tipo de puesto</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="job-type" id="job-type-internship" />
+              <label class="form-check-label" for="job-type-internship">Pasantía</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="job-type" id="job-type-trainee" />
+              <label class="form-check-label" for="job-type-trainee">Trainee</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="job-type" id="job-type-junior" />
+              <label class="form-check-label" for="job-type-junior">Junior</label>
+            </div>
+          </fieldset>
+        </details>
+        <!-- Ubicación usa radios: se elige una sola opción (sección 4.14 del PDF). -->
+        <details class="filter-dropdown" name="offer-filters">
+          <summary class="filter-chip">
+            Ubicación
+            <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
+          </summary>
+          <fieldset class="filter-menu">
+            <legend class="visually-hidden">Ubicación</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="location" id="location-all" checked />
+              <label class="form-check-label" for="location-all">Todas</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="location" id="location-caba" />
+              <label class="form-check-label" for="location-caba">CABA</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="location" id="location-avellaneda" />
+              <label class="form-check-label" for="location-avellaneda">Avellaneda</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="location" id="location-lanus" />
+              <label class="form-check-label" for="location-lanus">Lanús</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="location" id="location-lomas" />
+              <label class="form-check-label" for="location-lomas">Lomas de Zamora</label>
+            </div>
+          </fieldset>
+        </details>
+        <!-- Toggle sin JS: el checkbox guarda el estado y el label se ve como chip. -->
+        <input type="checkbox" class="btn-check" id="filter-no-experience" checked />
+        <label for="filter-no-experience" class="filter-chip">
           <i class="bi bi-check-lg" aria-hidden="true"></i>
           Sin experiencia
-        </button>
+        </label>
       </div>
 
       <section aria-labelledby="results-heading" class="pb-4">
         <h2 id="results-heading" class="visually-hidden">Resultados</h2>
 
-        <!-- El conteo es de muestra; el orden está deshabilitado porque no hay lógica real. -->
+        <!-- El conteo es de muestra; el select se puede cambiar, pero no reordena (no hay lógica real). -->
         <div
           class="results-bar d-flex flex-wrap justify-content-between align-items-center gap-2 pt-1 pb-2"
         >
           <p class="results-count mb-0">128 oportunidades</p>
           <div class="d-flex align-items-center gap-1">
             <label for="offers-sort" class="sort-label">Ordenar:</label>
-            <select id="offers-sort" class="sort-select" disabled>
+            <select id="offers-sort" class="sort-select">
               <option value="recent" selected>Recientes</option>
               <option value="salary">Mayor salario</option>
             </select>
@@ -119,15 +178,13 @@
                   <h3 class="offer-card-title">Pasante de Diseño UX/UI</h3>
                   <p class="offer-card-company mb-0">Empresa · CABA</p>
                 </div>
-                <button
-                  type="button"
-                  class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0"
-                  aria-label="Quitar de guardadas: Pasante de Diseño UX/UI"
-                  aria-pressed="true"
-                  aria-disabled="true"
-                >
+                <!-- Checkbox oculto: guarda el estado sin JS; el label es el botón visible. -->
+                <input type="checkbox" class="btn-check" id="save-offer-1" checked />
+                <label for="save-offer-1" class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0">
+                  <i class="bi bi-bookmark" aria-hidden="true"></i>
                   <i class="bi bi-bookmark-fill" aria-hidden="true"></i>
-                </button>
+                  <span class="visually-hidden">Guardar oferta: Pasante de Diseño UX/UI</span>
+                </label>
               </div>
               <ul class="offer-tags list-unstyled d-flex flex-wrap mb-0">
                 <li class="offer-tag">Remoto</li>
@@ -146,15 +203,13 @@
                   <h3 class="offer-card-title">Asistente administrativo/a Jr.</h3>
                   <p class="offer-card-company mb-0">Empresa · Avellaneda</p>
                 </div>
-                <button
-                  type="button"
-                  class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0"
-                  aria-label="Guardar oferta: Asistente administrativo/a Jr."
-                  aria-pressed="false"
-                  aria-disabled="true"
-                >
+                <!-- Checkbox oculto: guarda el estado sin JS; el label es el botón visible. -->
+                <input type="checkbox" class="btn-check" id="save-offer-2" />
+                <label for="save-offer-2" class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0">
                   <i class="bi bi-bookmark" aria-hidden="true"></i>
-                </button>
+                  <i class="bi bi-bookmark-fill" aria-hidden="true"></i>
+                  <span class="visually-hidden">Guardar oferta: Asistente administrativo/a Jr.</span>
+                </label>
               </div>
               <ul class="offer-tags list-unstyled d-flex flex-wrap mb-0">
                 <li class="offer-tag">Presencial</li>
@@ -173,15 +228,13 @@
                   <h3 class="offer-card-title">Desarrollador/a Frontend Jr.</h3>
                   <p class="offer-card-company mb-0">Empresa · CABA</p>
                 </div>
-                <button
-                  type="button"
-                  class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0"
-                  aria-label="Guardar oferta: Desarrollador/a Frontend Jr."
-                  aria-pressed="false"
-                  aria-disabled="true"
-                >
+                <!-- Checkbox oculto: guarda el estado sin JS; el label es el botón visible. -->
+                <input type="checkbox" class="btn-check" id="save-offer-3" />
+                <label for="save-offer-3" class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0">
                   <i class="bi bi-bookmark" aria-hidden="true"></i>
-                </button>
+                  <i class="bi bi-bookmark-fill" aria-hidden="true"></i>
+                  <span class="visually-hidden">Guardar oferta: Desarrollador/a Frontend Jr.</span>
+                </label>
               </div>
               <ul class="offer-tags list-unstyled d-flex flex-wrap mb-0">
                 <li class="offer-tag">Híbrido</li>
@@ -200,15 +253,13 @@
                   <h3 class="offer-card-title">Soporte IT Jr.</h3>
                   <p class="offer-card-company mb-0">Empresa · Lanús</p>
                 </div>
-                <button
-                  type="button"
-                  class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0"
-                  aria-label="Guardar oferta: Soporte IT Jr."
-                  aria-pressed="false"
-                  aria-disabled="true"
-                >
+                <!-- Checkbox oculto: guarda el estado sin JS; el label es el botón visible. -->
+                <input type="checkbox" class="btn-check" id="save-offer-4" />
+                <label for="save-offer-4" class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0">
                   <i class="bi bi-bookmark" aria-hidden="true"></i>
-                </button>
+                  <i class="bi bi-bookmark-fill" aria-hidden="true"></i>
+                  <span class="visually-hidden">Guardar oferta: Soporte IT Jr.</span>
+                </label>
               </div>
               <ul class="offer-tags list-unstyled d-flex flex-wrap mb-0">
                 <li class="offer-tag">Presencial</li>

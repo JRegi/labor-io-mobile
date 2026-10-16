@@ -51,12 +51,15 @@
 }
 
 // Los 20 px verticales no tienen una utilidad equivalente de Bootstrap.
+// position: relative sirve de referencia para ubicar los menús desplegables.
 .filter-bar {
+  position: relative;
   padding-block: 1.25rem;
 }
 
 .filter-chip {
   display: inline-flex;
+  cursor: pointer; // summary y label no muestran la "manito" por defecto.
   align-items: center;
   gap: 0.375rem; // 6 px entre el texto y el ícono.
   min-height: 2rem;
@@ -75,12 +78,6 @@
     color: $color-ink-muted;
   }
 
-  &.is-active {
-    border-color: $color-brand-blue;
-    background-color: $color-brand-blue;
-    color: $color-surface;
-  }
-
   .bi-check-lg {
     font-size: 0.875rem;
     line-height: 1;
@@ -89,6 +86,71 @@
   &:focus-visible {
     outline: 3px solid $color-brand-blue;
     outline-offset: 2px;
+  }
+}
+
+// Chip toggle «Sin experiencia»: el estado lo da el checkbox oculto (.btn-check).
+// El "+" selecciona el label que viene justo después del input.
+.btn-check:checked + .filter-chip {
+  border-color: $color-brand-blue;
+  background-color: $color-brand-blue;
+  color: $color-surface;
+}
+
+// El tilde solo se ve cuando el chip está activo.
+.btn-check:not(:checked) + .filter-chip .bi-check-lg {
+  display: none;
+}
+
+// El foco llega al input oculto, así que el outline se dibuja en el label.
+.btn-check:focus-visible + .filter-chip {
+  outline: 3px solid $color-brand-blue;
+  outline-offset: 2px;
+}
+
+// Desplegables con <details>: quitamos el triángulo nativo del summary.
+.filter-dropdown {
+  summary {
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none; // Safari usa este pseudo-elemento para el triángulo.
+    }
+  }
+
+  // El caret apunta hacia arriba mientras el menú está abierto.
+  &[open] .bi-caret-down-fill {
+    transform: rotate(180deg);
+  }
+}
+
+// El menú se ubica debajo de la fila de filtros (no de cada chip) para que
+// nunca se salga por la derecha de la pantalla y genere scroll horizontal.
+// TODO(design): Figma no muestra el desplegable abierto; medidas tomadas de los tokens.
+.filter-menu {
+  position: absolute;
+  top: calc(100% - 1rem); // 4 px debajo de los chips (el padding inferior es de 20 px).
+  left: 0;
+  z-index: $zindex-dropdown;
+  max-width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid $color-line;
+  border-radius: $radius-base;
+  background-color: $color-surface;
+
+  .form-check {
+    margin-bottom: 0;
+  }
+
+  // 10 px arriba y abajo + 24 px de texto = 44 px de área táctil por opción.
+  .form-check-label {
+    display: block;
+    padding-block: 0.625rem;
+    cursor: pointer;
+  }
+
+  .form-check-input {
+    margin-top: 0.875rem; // Centra la casilla con el texto de la opción.
   }
 }
 
@@ -114,7 +176,12 @@
   border: 0;
   background-color: transparent;
   color: $color-ink;
-  opacity: 1; // El control es estático, pero conserva los colores del diseño.
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 3px solid $color-brand-blue;
+    outline-offset: 2px;
+  }
 }
 
 // La grilla de Bootstrap se conserva, con los 12 px de separación del PDF.
@@ -181,9 +248,16 @@
   color: $color-brand-blue;
   font-size: 1.25rem;
   line-height: 1;
+  cursor: pointer;
+}
 
-  &:focus-visible {
-    outline: 3px solid $color-brand-blue;
-    outline-offset: 2px;
-  }
+// Guardar oferta: según el checkbox oculto se ve el marcador vacío o el lleno.
+.btn-check:checked + .save-button .bi-bookmark,
+.btn-check:not(:checked) + .save-button .bi-bookmark-fill {
+  display: none;
+}
+
+.btn-check:focus-visible + .save-button {
+  outline: 3px solid $color-brand-blue;
+  outline-offset: 2px;
 }
