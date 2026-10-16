@@ -92,6 +92,135 @@
           Sin experiencia
         </button>
       </div>
+
+      <section aria-labelledby="results-heading" class="pb-4">
+        <h2 id="results-heading" class="visually-hidden">Resultados</h2>
+
+        <!-- El conteo es de muestra; el orden está deshabilitado porque no hay lógica real. -->
+        <div
+          class="results-bar d-flex flex-wrap justify-content-between align-items-center gap-2 pt-1 pb-2"
+        >
+          <p class="results-count mb-0">128 oportunidades</p>
+          <div class="d-flex align-items-center gap-1">
+            <label for="offers-sort" class="sort-label">Ordenar:</label>
+            <select id="offers-sort" class="sort-select" disabled>
+              <option value="recent" selected>Recientes</option>
+              <option value="salary">Mayor salario</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Una columna en celular y dos desde md; cada article es una oferta independiente. -->
+        <ul class="offer-list list-unstyled row row-cols-1 row-cols-md-2 g-3 mb-0">
+          <li class="col">
+            <article class="offer-card card h-100 p-3">
+              <div class="offer-card-heading d-flex align-items-start">
+                <div class="flex-grow-1">
+                  <h3 class="offer-card-title">Pasante de Diseño UX/UI</h3>
+                  <p class="offer-card-company mb-0">Empresa · CABA</p>
+                </div>
+                <button
+                  type="button"
+                  class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0"
+                  aria-label="Quitar de guardadas: Pasante de Diseño UX/UI"
+                  aria-pressed="true"
+                  aria-disabled="true"
+                >
+                  <i class="bi bi-bookmark-fill" aria-hidden="true"></i>
+                </button>
+              </div>
+              <ul class="offer-tags list-unstyled d-flex flex-wrap mb-0">
+                <li class="offer-tag">Remoto</li>
+                <li class="offer-tag">Pasantía</li>
+                <li class="offer-tag">Sin experiencia</li>
+              </ul>
+              <p class="offer-card-salary mb-0">$ 450.000 – 550.000</p>
+              <!-- Fechas fijas de muestra, relativas al 15/10/2026. -->
+              <time class="offer-card-date" datetime="2026-10-13">Hace 2 días</time>
+            </article>
+          </li>
+          <li class="col">
+            <article class="offer-card card h-100 p-3">
+              <div class="offer-card-heading d-flex align-items-start">
+                <div class="flex-grow-1">
+                  <h3 class="offer-card-title">Asistente administrativo/a Jr.</h3>
+                  <p class="offer-card-company mb-0">Empresa · Avellaneda</p>
+                </div>
+                <button
+                  type="button"
+                  class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0"
+                  aria-label="Guardar oferta: Asistente administrativo/a Jr."
+                  aria-pressed="false"
+                  aria-disabled="true"
+                >
+                  <i class="bi bi-bookmark" aria-hidden="true"></i>
+                </button>
+              </div>
+              <ul class="offer-tags list-unstyled d-flex flex-wrap mb-0">
+                <li class="offer-tag">Presencial</li>
+                <li class="offer-tag">Trainee</li>
+                <li class="offer-tag">Sin experiencia</li>
+              </ul>
+              <p class="offer-card-salary mb-0">$ 600.000 – 700.000</p>
+              <time class="offer-card-date" datetime="2026-10-12">Hace 3 días</time>
+            </article>
+          </li>
+          <!-- TODO(design): salario y fecha de la tercera oferta son ejemplos; no se ven en la referencia. -->
+          <li class="col">
+            <article class="offer-card card h-100 p-3">
+              <div class="offer-card-heading d-flex align-items-start">
+                <div class="flex-grow-1">
+                  <h3 class="offer-card-title">Desarrollador/a Frontend Jr.</h3>
+                  <p class="offer-card-company mb-0">Empresa · CABA</p>
+                </div>
+                <button
+                  type="button"
+                  class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0"
+                  aria-label="Guardar oferta: Desarrollador/a Frontend Jr."
+                  aria-pressed="false"
+                  aria-disabled="true"
+                >
+                  <i class="bi bi-bookmark" aria-hidden="true"></i>
+                </button>
+              </div>
+              <ul class="offer-tags list-unstyled d-flex flex-wrap mb-0">
+                <li class="offer-tag">Híbrido</li>
+                <li class="offer-tag">Junior</li>
+                <li class="offer-tag">Sin experiencia</li>
+              </ul>
+              <p class="offer-card-salary mb-0">$ 900.000 – 1.100.000</p>
+              <time class="offer-card-date" datetime="2026-10-14">Hace 1 día</time>
+            </article>
+          </li>
+          <!-- TODO(design): contenido de ejemplo; la cuarta oferta no se ve en la referencia. -->
+          <li class="col">
+            <article class="offer-card card h-100 p-3">
+              <div class="offer-card-heading d-flex align-items-start">
+                <div class="flex-grow-1">
+                  <h3 class="offer-card-title">Soporte IT Jr.</h3>
+                  <p class="offer-card-company mb-0">Empresa · Lanús</p>
+                </div>
+                <button
+                  type="button"
+                  class="save-button d-inline-flex align-items-center justify-content-center flex-shrink-0"
+                  aria-label="Guardar oferta: Soporte IT Jr."
+                  aria-pressed="false"
+                  aria-disabled="true"
+                >
+                  <i class="bi bi-bookmark" aria-hidden="true"></i>
+                </button>
+              </div>
+              <ul class="offer-tags list-unstyled d-flex flex-wrap mb-0">
+                <li class="offer-tag">Presencial</li>
+                <li class="offer-tag">Junior</li>
+                <li class="offer-tag">Sin experiencia</li>
+              </ul>
+              <p class="offer-card-salary mb-0">$ 700.000 – 850.000</p>
+              <time class="offer-card-date" datetime="2026-10-11">Hace 4 días</time>
+            </article>
+          </li>
+        </ul>
+      </section>
     </main>
   </body>
 </html>
