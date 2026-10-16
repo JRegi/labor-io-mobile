@@ -16,24 +16,82 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="../css/main.css" />
   </head>
   <body class="offers-layout">
-    <header
-      class="site-header container d-flex justify-content-between align-items-center gap-3 py-2"
-    >
-      <a href="../index.html" class="brand-logo" aria-label="Labor.io, ir al inicio">
+    <!-- El logo y el acceso a Login son enlaces porque cambian de página. -->
+    <header class="site-header container d-flex justify-content-between align-items-center gap-3">
+      <a href="../index.html" class="brand-logo">
         <span class="brand-mark" aria-hidden="true"></span>
         Labor.io
       </a>
-      <a href="login.html" class="btn btn-primary btn-compact d-inline-flex align-items-center">
+      <a
+        href="login.html"
+        class="btn btn-primary btn-compact d-inline-flex align-items-center justify-content-center text-nowrap"
+      >
         Iniciar sesión
       </a>
     </header>
 
+    <!-- El contenido principal empieza con un único título de nivel 1. -->
+    <!-- El diseño pide 8 px arriba (pt-2) y 24 px entre título y descripción (mb-4). -->
     <main class="offers-page container pt-2">
-      <h1 class="page-title mb-3">Oportunidades</h1>
-      <p class="mb-0">Encontrá tu primer trabajo, pasantía o puesto junior.</p>
+      <h1 class="page-title mb-4">Oportunidades</h1>
+      <p class="page-lead mb-0">Encontrá tu primer trabajo, pasantía o puesto junior.</p>
+
+      <!-- Usamos un bloque de búsqueda sin envío de formulario: este paso es solo visual. -->
+      <div role="search" class="search-bar d-flex gap-2 mt-4">
+        <label for="search-query" class="visually-hidden">Puesto, empresa o palabra clave</label>
+        <div class="search-field d-flex align-items-center gap-2 flex-grow-1">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input
+            type="search"
+            id="search-query"
+            class="form-control bg-transparent border-0 p-0 shadow-none"
+            placeholder="Ej: diseño, atención"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary btn-compact flex-shrink-0"
+          aria-disabled="true"
+        >
+          Buscar
+        </button>
+      </div>
+
+      <!-- Los filtros conservan el aspecto del diseño, sin desplegables ni lógica de filtrado. -->
+      <div
+        class="filter-bar d-flex flex-wrap gap-2"
+        role="group"
+        aria-label="Filtros de oportunidades"
+      >
+        <button type="button" class="filter-chip" aria-disabled="true">
+          Modalidad
+          <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="filter-chip" aria-disabled="true">
+          Tipo de puesto
+          <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="filter-chip" aria-disabled="true">
+          Ubicación
+          <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
+        </button>
+        <button
+          type="button"
+          class="filter-chip is-active"
+          aria-pressed="true"
+          aria-disabled="true"
+        >
+          <i class="bi bi-check-lg" aria-hidden="true"></i>
+          Sin experiencia
+        </button>
+      </div>
     </main>
   </body>
 </html>
