@@ -1,1 +1,77 @@
-// login y register juntos
+// Estilos de pages/login.html y pages/register.html
+
+// Botones «Google» y «LinkedIn»: blancos, borde y texto azul de marca
+.btn-social {
+  --bs-btn-color: #{$color-brand-blue};
+  --bs-btn-bg: #{$color-surface};
+  --bs-btn-border-color: #{$color-brand-blue};
+  --bs-btn-hover-color: #{$color-brand-blue};
+  --bs-btn-hover-bg: #{$color-blue-tint};
+  --bs-btn-hover-border-color: #{$color-brand-blue};
+  --bs-btn-active-color: #{$color-brand-blue};
+  --bs-btn-active-bg: #{$color-blue-tint};
+  --bs-btn-active-border-color: #{$color-brand-blue};
+  --bs-btn-font-size: 0.875rem; // 14 px
+  --bs-btn-line-height: 1.25rem; // 20 px
+  min-height: 2.8125rem; // 45 px
+}
+
+// Contenedor del input de contraseña: referencia para ubicar el botón del ojo
+.password-field {
+  position: relative;
+
+  .form-control {
+    min-height: 3rem; // 48 px
+    padding-right: 3rem; // deja lugar para el ojo, así el texto no queda debajo
+  }
+}
+
+// Botón del ojo: 44 × 44 px, pegado al borde derecho del input
+.password-toggle {
+  position: absolute;
+  top: 0.125rem; // (48 − 44) / 2 = 2 px → centrado vertical
+  right: 0.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: $radius-base;
+  background-color: transparent;
+  color: $color-brand-blue;
+  font-size: 1.25rem; // ícono de 20 px
+}
+
+// Requisitos de contraseña (Register)
+.password-requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; // 24 px entre requisitos
+  margin-bottom: 0;
+  font-size: 0.8125rem; // 13 px
+  line-height: 1.125rem; // 18 px
+  color: $color-ink-muted;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; // 10 px entre círculo y texto
+  }
+
+  .bi {
+    font-size: 0.875rem; // 14 px
+  }
+}
+
+// Texto del checkbox de términos
+.form-check-label {
+  font-size: 0.8125rem; // 13 px
+  line-height: 1.125rem; // 18 px
+}
+
+// Espacio extra antes de «Iniciar sesión» en Login (Figma: 63 px)
+.login-submit {
+  margin-top: 2.4375rem; // 39 px + 24 px del gap = 63 px
+}

@@ -12134,3 +12134,70 @@ button:focus-visible,
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
+
+.btn-social {
+  --bs-btn-color: #1b3a6b;
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: #1b3a6b;
+  --bs-btn-hover-color: #1b3a6b;
+  --bs-btn-hover-bg: #e3eaf6;
+  --bs-btn-hover-border-color: #1b3a6b;
+  --bs-btn-active-color: #1b3a6b;
+  --bs-btn-active-bg: #e3eaf6;
+  --bs-btn-active-border-color: #1b3a6b;
+  --bs-btn-font-size: 0.875rem;
+  --bs-btn-line-height: 1.25rem;
+  min-height: 2.8125rem;
+}
+
+.password-field {
+  position: relative;
+}
+.password-field .form-control {
+  min-height: 3rem;
+  padding-right: 3rem;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 0.125rem;
+  right: 0.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.75rem;
+  background-color: transparent;
+  color: #1b3a6b;
+  font-size: 1.25rem;
+}
+
+.password-requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 0;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  color: #5b6472;
+}
+.password-requirements li {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.password-requirements .bi {
+  font-size: 0.875rem;
+}
+
+.form-check-label {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
+
+.login-submit {
+  margin-top: 2.4375rem;
+}
