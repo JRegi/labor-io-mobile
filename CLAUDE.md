@@ -53,7 +53,7 @@ La especificación completa está en **`docs/design/labor-io-design-system-v2.1.
 
 **Es la referencia principal: consultala antes de implementar cualquier página o componente.** Este archivo resume lo esencial; las medidas exactas están en el PDF.
 
-Otros archivos en `docs/design/`: capturas mobile de Figma (375 × 812 px) y láminas de la guía de estilo. Si un archivo mencionado no está en el repo, **pedírselo al usuario** en lugar de suponer su contenido.
+Si un archivo mencionado no está en el repo, **pedírselo al usuario** en lugar de suponer su contenido.
 
 ### Orden de autoridad
 
